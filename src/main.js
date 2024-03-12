@@ -8,13 +8,40 @@ const Message = require("../models/Messages.js")
 const app = express()
 const port = 3000
 
-// app.use('/src', express.static(path.join(__dirname, 'src')))
 app.use('/src', express.static(path.join(__dirname, '../public/src')));
 
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use(express.json()); // Add this line to parse JSON bodies
 
+/*
+If You want to use Routes folder to organize routes, then the required folder Structure
+your - express - app /
+│
+├── src /
+│   ├── routes /
+│   │   ├── index.js       // Main router file
+│   │   ├── messages.js    // Route handler for messages
+│   │   └── otherRoutes.js // Additional route handlers
+│   │
+│   └── main.js            // Entry point of your Express application
+│
+└── .env                   // Environment variables
+
+
+// Define routes
+
+const indexRouter = require('./routes/index');
+const messagesRouter = require('./routes/messages');
+// Add more route handlers as needed
+
+// Use routes
+
+app.use('/', indexRouter);
+app.use('/api/messages', messagesRouter);
+// Use more routes as needed
+
+*/
 async function connectToDatabase() {
     try {
         await mongoose.connect(process.env.MONGODB_URI);
