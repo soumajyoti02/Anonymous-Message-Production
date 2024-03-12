@@ -1,4 +1,6 @@
 const express = require('express')
+require('dotenv').config(); // Load environment variables from .env file
+
 const mongoose = require("mongoose")
 const path = require('path');
 const Message = require("../models/Messages.js")
@@ -15,7 +17,7 @@ app.use(express.json()); // Add this line to parse JSON bodies
 
 async function connectToDatabase() {
     try {
-        await mongoose.connect('mongodb+srv://soumyabwn3:gv0Rj6W7jVURxq4F@cluster0.aadrhnf.mongodb.net/Message');
+        await mongoose.connect(process.env.MONGODB_URI);
         console.log("Connected to MongoDB");
     } catch (error) {
         console.error("Error connecting to MongoDB:", error);
