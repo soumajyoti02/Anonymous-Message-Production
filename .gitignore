@@ -1,0 +1,22 @@
+# Node.js dependencies
+node_modules/
+
+# Environment variables file
+.env
+
+# Vercel build directory
+.vercel/
+
+# Compiled output (if any)
+/build/
+/dist/
+
+# Editor/IDE specific files
+.idea/
+.vscode/
+
+# Mac specific files
+.DS_Store
+
+# Log files
+*.log

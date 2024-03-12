@@ -1,0 +1,21 @@
+{
+  "name": "anonymous-message",
+  "version": "1.0.0",
+  "description": "",
+  "main": "./src/main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "concurrently \"npx tailwindcss -i ./public/src/input.css -o ./public/src/output.css --watch\" \"nodemon index.js\""
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "concurrently": "^8.2.2",
+    "express": "^4.18.3",
+    "mongoose": "^8.2.1"
+  },
+  "devDependencies": {
+    "tailwindcss": "^3.4.1"
+  }
+}

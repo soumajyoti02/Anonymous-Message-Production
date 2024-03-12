@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/src/output.css">
+</head>
+
+<body>
+    <header class="text-gray-600 body-font border-b-2 border-b-slate-300 shadow-xl sticky top-0 backdrop-blur-3xl z-10">
+        <div class="container w-screen md:w-[90%] md:pt-5 mx-auto flex flex-wrap p-5 justify-between items-center">
+            <a class="flex title-font font-medium items-center text-gray-900 md:mb-0">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round"
+                    stroke-linejoin="round" stroke-width="2" class="w-10 h-10 text-white p-2 bg-indigo-500 rounded-full"
+                    viewBox="0 0 24 24">
+                    <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path>
+                </svg>
+                <a href="/" class="ml-3 text-xl">Messenger</a>
+            </a>
+        </div>
+    </header>
+
+
+    <div id="mainDiv" class="p-4 lg:w-11/12 flex justify-center m-auto space-x-5 flex-wrap z-0">
+
+    </div>
+
+    <script>
+        window.addEventListener('DOMContentLoaded', async () => {
+            const res = await fetch('/message')
+            if (res.ok) {
+                const data = await res.json()
+                data.forEach((message) => {
+                    const div = document.createElement('div')
+                    div.classList.add("h-auto", "bg-gray-100", "mb-5", "px-8", "pt-8", "pb-12", "rounded-lg", "overflow-hidden", "text-center", "relative");
+
+                    const h1 = document.createElement('h1')
+                    h1.classList.add("title-font", "sm:text-2xl", "text-xl", "font-medium", "text-gray-900", "mb-3");
+
+                    const p = document.createElement('p')
+                    p.classList.add("leading-relaxed", "mb-3")
+
+                    const dateString = message.createdAt;
+                    const formattedDateTime = new Date(dateString).toLocaleString('en-US');
+                    console.log(formattedDateTime)
+
+                    h1.textContent = formattedDateTime
+                    p.textContent = message.mess
+
+                    div.appendChild(h1)
+                    div.appendChild(p)
+
+                    containerDiv = document.getElementById("mainDiv")
+                    containerDiv.appendChild(div)
+                })
+            }
+        })
+    </script>
+</body>
+
+</html>
