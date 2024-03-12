@@ -12,13 +12,20 @@
     ],
     "routes": [
         {
-            "src": "/api/messages",
+            "src": "/(.*)",
             "dest": "src/main.js"
         },
         {
-            "src": "/(.*)",
-            "dest": "public/$1",
-            "cleanUrls": false
+            "src": "/messages",
+            "dest": "src/main.js"
+        },
+        {
+            "src": "/allmessage",
+            "dest": "src/main.js"
+        },
+        {
+            "src": "/message",
+            "dest": "src/main.js"
         }
     ]
 }
