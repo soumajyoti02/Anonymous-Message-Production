@@ -13,21 +13,22 @@ Ensure that `Public` is set as the static folder. Strictly follow the code in `m
 
 In every GET request in `main.js`, set root to Public folder like this:
 
-
-`res.sendFile('index.html', { root: path.join(__dirname, '../public') })`
-
+```
+res.sendFile('index.html', { root: path.join(__dirname, '../public') })
+```
 ### 4\. Update `tailwind.config`
 
 Add this line to `tailwind.config`:
-
-`content: ["./public/*.html"]`
-
+```
+content: ["./public/*.html"]
+```
 ### 5\. Add into `package.json`
 
 Add these scripts and main file:
 
-
-`"scripts": {
+```
+"scripts": {
     "start": "concurrently \"npx tailwindcss -i ./public/src/input.css -o ./public/src/output.css --watch\" \"nodemon index.js\""
 },
-"main": "./src/main.js"`
+"main": "./src/main.js"
+```
