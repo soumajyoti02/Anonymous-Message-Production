@@ -1,24 +1,3 @@
-# Folder Structure to Deploy express-app in Vercel
-
-your-express-app/
-│
-├── public/
-│   ├── index.html
-│   ├── allmessage.html
-│   └── src/
-│       ├── input.css
-│       └── output.css
-│
-├── src/
-│   └── main.js
-│
-├── models/
-│   └── Messages.js
-│
-├── package.json
-├── package-lock.json
-└── vercel.json
-
 ## Make a file ```versel.json``` and paste all fetch request and their destinations
 
 ## Make Public as Static folder. Strictly follow the ```main.js``` code in this repo.
